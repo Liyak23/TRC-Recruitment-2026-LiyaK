@@ -1,0 +1,159 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+
+WorldInfo {
+}
+
+Viewpoint {
+  orientation -0.0616 0.9409 0.3331 0.3882
+  position -8.58 -0.56 5.14
+}
+
+TexturedBackground {
+}
+
+TexturedBackgroundLight {
+}
+
+Floor {
+}
+
+Robot {
+  translation 0 0.1 0
+  name "MyRobot"
+  controller "my_controller"
+
+  children [
+
+    # Robot body
+    Shape {
+      geometry Box {
+        size 0.3 0.15 0.05
+      }
+    }
+
+    # LEFT FRONT WHEEL
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.1 0.1 -0.025
+        axis 0 0 1
+      }
+
+      device [
+        RotationalMotor {
+          name "left_front_motor"
+        }
+      ]
+
+      endPoint Solid {
+        name "left_front_wheel"
+
+        translation -0.1 0.1 -0.025
+        rotation 1 0 0 1.5708
+
+        children [
+          Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+      }
+    }
+
+    # RIGHT FRONT WHEEL
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.1 0.1 -0.025
+        axis 0 0 1
+      }
+
+      device [
+        RotationalMotor {
+          name "right_front_motor"
+        }
+      ]
+
+      endPoint Solid {
+        name "right_front_wheel"
+
+        translation 0.1 0.1 -0.025
+        rotation 1 0 0 1.5708
+
+        children [
+          Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+      }
+    }
+
+    # LEFT REAR WHEEL
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.1 -0.1 -0.025
+        axis 0 0 1
+      }
+
+      device [
+        RotationalMotor {
+          name "left_rear_motor"
+        }
+      ]
+
+      endPoint Solid {
+        name "left_rear_wheel"
+
+        translation -0.1 -0.1 -0.025
+        rotation 1 0 0 1.5708
+
+        children [
+          Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+      }
+    }
+
+    # RIGHT REAR WHEEL
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.1 -0.1 -0.025
+        axis 0 0 1
+      }
+
+      device [
+        RotationalMotor {
+          name "right_rear_motor"
+        }
+      ]
+
+      endPoint Solid {
+        name "right_rear_wheel"
+
+        translation 0.1 -0.1 -0.025
+        rotation 1 0 0 1.5708
+
+        children [
+          Shape {
+            geometry Cylinder {
+              height 0.03
+              radius 0.05
+            }
+          }
+        ]
+      }
+    }
+
+  ]
+}
